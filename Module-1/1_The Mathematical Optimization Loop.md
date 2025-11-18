@@ -1,6 +1,6 @@
 # Neural Networks as Linear Regression
 
-We often treat "Neural Networks" as magic boxes, but at their core, they are just fancy versions of Linear Regression.
+We often treat "Neural Networks" as magic boxes, but at their core, they are just fancy versions of Linear Regression.[^1]
 
 To make this concrete, let's model the basketball shot mathematically using the simplest equation in algebra: the line equation ($y = mx + b$).
 
@@ -37,9 +37,9 @@ Here is the comparison of the conceptual "Basketball Shot" vs. the mathematical 
 
 * **The Basketball Analogy:** Your brain analyzes: "Why was I short? Was it my base strength ($b$) or did I misjudge the distance multiplier ($w$)?" You realize you need to increase the multiplier.
 * **The Linear Regression Math:**
-  * **Gradients:** We calculate the derivative. We ask: "If I increase $w$, does the error go down?"
+  * **Gradients:** We calculate the derivative. We ask: "If I increase $w$, does the error go down?"[^3]
     $\frac{\partial J}{\partial w} = -2(y - \hat{y})x$
-  * The math tells us exactly how much $w$ and $b$ contributed to the error of 25.
+  * The math tells us exactly how much $w$ and $b$ contributed to the error of 25.[^2]
 
 ### 4\. Optimization (The Adjustment)
 
@@ -69,7 +69,7 @@ Here is the comparison of the conceptual "Basketball Shot" vs. the mathematical 
 
 You might be thinking, "Okay, but how does $y = mx + b$ turn into ChatGPT?"
 
-The magic is that the math does not change. The only thing that changes is the scale and the complexity of the function.
+The magic is that the math does not change. The only thing that changes is the scale and the complexity of the function.[^6]
 
 ### **1. From 2 Parameters to Billions**
 
@@ -80,12 +80,12 @@ The magic is that the math does not change. The only thing that changes is the s
 ### **2. From "Distance" to "Tokens"**
 
 * **Basketball Input:** A number representing distance (e.g., "10 meters").
-* **LLM Input:** A sequence of numbers representing words (tokens). e.g., "The cat sat on the..." might be represented as `[104, 22, 908, 11]`.
+* **LLM Input:** A sequence of numbers representing words (tokens). e.g., "The cat sat on the..." might be represented as `[104, 22, 908, 11]`.[^4]
 
 ### **3. From "Power" to "Probability"**
 
 * **Basketball Output:** A number representing Force.
-* **LLM Output:** A probability distribution over all possible next words.
+* **LLM Output:** A probability distribution over all possible next words.[^5]
 * **Forward Prop calculates:** "Given 'The cat sat on the...', what is the likely next word?"
 * **Prediction ($\hat{y}$):** "Mat" (90%), "Hat" (5%), "Dog" (1%).
 
@@ -97,3 +97,12 @@ The magic is that the math does not change. The only thing that changes is the s
 * **Backpropagation** goes back through the billions of parameters to find which specific neurons were responsible for thinking "dog" instead of "mat" and nudges them down.
 
 > **Summary:** An LLM is just a basketball player taking billions of shots (reading billions of sentences) and adjusting its muscle memory (weights) slightly every time it guesses the next word wrong.
+
+## References
+
+[^1]: Scikit-learn Developers. "Linear Regression." [https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares)
+[^2]: PyTorch Core Team. "Autograd Mechanics." [https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
+[^3]: Google MLCC. "Gradient Descent." [https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent](https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent)
+[^4]: Hugging Face. "Tokenization." [https://huggingface.co/docs/transformers/tokenizer_summary](https://huggingface.co/docs/transformers/tokenizer_summary)
+[^5]: Stanford CS224n. "Language Modeling." [https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture02-wordvecs1.pdf](https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture02-wordvecs1.pdf)
+[^6]: Vaswani et al. "Attention Is All You Need." [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
