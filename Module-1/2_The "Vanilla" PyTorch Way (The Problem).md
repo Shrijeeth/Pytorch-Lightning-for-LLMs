@@ -1,10 +1,12 @@
 # The "Vanilla" PyTorch Way (The Problem)
 
-Now, let's look at how we translate those 5 math steps into Python code using standard ("Vanilla") PyTorch.
+Now, let's look at how we translate those 5 math steps into Python code using standard ("Vanilla") [PyTorch](https://pytorch.org/docs/stable/index.html).
 
 ## The Task
 
 Read the code below. Notice how the **Model Logic** (the research) is completely tangled with the **Engineering Logic** (loops, device management, logging).
+
+> ✳️ Need a refresher on core data utilities? Check the PyTorch docs for [TensorDataset](https://pytorch.org/docs/stable/data.html#torch.utils.data.TensorDataset) and [DataLoader](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader).
 
 ```python
 # vanilla_training.py
@@ -79,15 +81,15 @@ if __name__ == "__main__":
 
 The code above works, but it is **fragile**.
 
-* **The "Device" Trap:** Notice `data.to(device)`. If you forget this on line 42, or if you try to run this on a multi-GPU setup, the code crashes or fails silently. You are hard-coding hardware logic into your math loop.
-* **The "Refactoring" Nightmare:** Imagine you want to add **Gradient Accumulation** (updating weights only every 4 steps to simulate a larger batch size). You would have to manually alter the `for` loop logic.
-* **The "FP16" Headache:** If you want to use Mixed Precision (to save memory), you have to wrap the forward pass and backward pass in special "Scalers." The loop becomes twice as long and harder to read.
+* **The "Device" Trap:** Notice `data.to(device)`. If you forget this on line 42, or if you try to run this on a multi-GPU setup, the code crashes or fails silently. You are hard-coding hardware logic into your math loop, and the [CUDA semantics docs](https://pytorch.org/docs/stable/notes/cuda.html#cuda-semantics) show just how easy it is to make mistakes here.
+* **The "Refactoring" Nightmare:** Imagine you want to add **Gradient Accumulation** (updating weights only every 4 steps to simulate a larger batch size). You would have to manually alter the `for` loop logic—compare with the official recipe for [accumulating gradients](https://pytorch.org/tutorials/recipes/recipes/accumulating_gradients.html).
+* **The "FP16" Headache:** If you want to use Mixed Precision (to save memory), you have to wrap the forward pass and backward pass in special "Scalers." The loop becomes twice as long and harder to read, as highlighted in the [Automatic Mixed Precision guide](https://pytorch.org/docs/stable/amp.html).
 
 -----
 
 ## The Lightning Solution
 
-PyTorch Lightning was created to solve this. It asks you to answer two questions:
+PyTorch Lightning was created to solve this. It asks you to answer two questions (see the [Lightning docs](https://lightning.ai/docs/pytorch/stable/) for a deeper overview):
 
 1. **What is the model?** (The Math)
 2. **What is the data?** (The Math)
