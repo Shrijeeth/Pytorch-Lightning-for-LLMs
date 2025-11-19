@@ -23,7 +23,7 @@ Your task is to take the logic we discussed in the "Vanilla" section and place i
 
 ### Step 1: Install Lightning
 
-If you haven't already, install the library (see the [official installation guide](https://lightning.ai/docs/pytorch/stable/install/installation.html)):
+If you haven't already, install the library (see the [official installation guide](https://lightning.ai/docs/pytorch/stable/starter/installation.html)):
 
 ```bash
 pip install lightning

@@ -82,7 +82,7 @@ if __name__ == "__main__":
 The code above works, but it is **fragile**.
 
 * **The "Device" Trap:** Notice `data.to(device)`. If you forget this on line 42, or if you try to run this on a multi-GPU setup, the code crashes or fails silently. You are hard-coding hardware logic into your math loop, and the [CUDA semantics docs](https://pytorch.org/docs/stable/notes/cuda.html#cuda-semantics) show just how easy it is to make mistakes here.
-* **The "Refactoring" Nightmare:** Imagine you want to add **Gradient Accumulation** (updating weights only every 4 steps to simulate a larger batch size). You would have to manually alter the `for` loop logic—compare with the official recipe for [accumulating gradients](https://pytorch.org/tutorials/recipes/recipes/accumulating_gradients.html).
+* **The "Refactoring" Nightmare:** Imagine you want to add **Gradient Accumulation** (updating weights only every 4 steps to simulate a larger batch size). You would have to manually alter the `for` loop logic—compare with the Hugging Face guide on [gradient accumulation](https://huggingface.co/docs/transformers/perf_train_gpu_one#gradient-accumulation).
 * **The "FP16" Headache:** If you want to use Mixed Precision (to save memory), you have to wrap the forward pass and backward pass in special "Scalers." The loop becomes twice as long and harder to read, as highlighted in the [Automatic Mixed Precision guide](https://pytorch.org/docs/stable/amp.html).
 
 -----

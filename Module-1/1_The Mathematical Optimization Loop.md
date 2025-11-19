@@ -104,5 +104,5 @@ The magic is that the math does not change. The only thing that changes is the s
 [^2]: PyTorch Core Team. "Autograd Mechanics." [https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
 [^3]: Google MLCC. "Gradient Descent." [https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent](https://developers.google.com/machine-learning/crash-course/reducing-loss/gradient-descent)
 [^4]: Hugging Face. "Tokenization." [https://huggingface.co/docs/transformers/tokenizer_summary](https://huggingface.co/docs/transformers/tokenizer_summary)
-[^5]: Stanford CS224n. "Language Modeling." [https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture02-wordvecs1.pdf](https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture02-wordvecs1.pdf)
+[^5]: Stanford CS224n. "Language Modeling." [https://web.stanford.edu/class/cs224n/slides/cs224n-spr2024-lecture01-wordvecs1.pdf](https://web.stanford.edu/class/cs224n/slides/cs224n-spr2024-lecture01-wordvecs1.pdf)
 [^6]: Vaswani et al. "Attention Is All You Need." [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
