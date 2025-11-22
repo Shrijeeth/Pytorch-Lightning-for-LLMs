@@ -69,4 +69,4 @@
 * **Math & Theory:**
   * Low-Rank Decomposition: $W = A \times B$.
   * Mathematical derivation of the parameter savings formula.
-* **Project:** **"Local-LoRA"** – Fine-tune a 7B parameter model (like Llama 3 8B or Mistral) on a consumer GPU using PyTorch Lightning + PEFT.
+* **Project:** **"Local-LoRA"** – Fine-tune a 7B parameter model (like Llama 3 8B or Mistral) on a consumer GPU using PyTorch Lightning + PEFT + LoRA.
